@@ -1,0 +1,17 @@
+{
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "kafkajs": "^1.12.0",
+    "nodemailer": "^6.4.3",
+    "nodemon": "^2.0.2"
+  },
+  "name": "market-place-price-microservices-nodejs",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "dev": "nodemon src/index.js",
+    "start": "node src/index.js"
+    
+  }
+}
