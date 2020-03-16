@@ -3,6 +3,7 @@ const fs = require('fs')
 const path = require('path')
 
 let EmailTemplate = fs.readFileSync(path.resolve(__dirname, '../templates/template.html'), 'utf8')
+
 module.exports = {
     groupId: "Mailer",
     config: {
@@ -18,20 +19,16 @@ module.exports = {
         })
         const user = JSON.parse(message.value)
         console.log(user)
-        await mailer.transport.sendMail({
-            from: 'Queue Test <queue@queuetest.com.br>',
-            to: `${user.name} <${user.email}>`,
-            subject: 'Cadastro de usuário',
-            html: EmailTemplate.replace("#user#", user.name).replace("#link#", user.link)
-        })
+        try {
+            await mailer.transport.sendMail({
+                from: 'Queue Test <queue@queuetest.com.br>',
+                to: `${user.name} <${user.email}>`,
+                subject: 'Cadastro de usuário',
+                html: EmailTemplate.replace("#user#", user.name).replace("#link#", user.link)
+            })
+        } catch (error) {
+            console.log(error)
+            throw error
+        }
     },
 }
-const person = (firstName, lastName) => (
-
-    {
-        first: firstName,
-        last: lastName
-    }
-)
-
-console.log(person("Jill", "Wilson"));

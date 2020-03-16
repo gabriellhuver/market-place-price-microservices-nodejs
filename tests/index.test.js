@@ -1,7 +1,7 @@
 const { Kafka } = require('kafkajs')
 const kafka = new Kafka({
     clientId: 'market-place-price',
-    brokers: ['127.0.0.1:9092']
+    brokers: ['localhost:9092']
 })
 
 
@@ -13,7 +13,7 @@ try {
         await producer.send({
             topic: 'sendConfirmationEmail',
             messages: [
-                { value: JSON.stringify({ email: 'gabriell.is.huver@example.com', name: 'Gabriell Huver', link: "google.com" }) },
+                { value: JSON.stringify({ email: 'gabriell.is.huver@gmail.com', name: 'Gabriell Huver', link: "google.com", createAt: new Date().toUTCString() }) },
             ],
         })
     }

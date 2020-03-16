@@ -1,4 +1,4 @@
 exports.config = {
     clientId: 'market-place-price',
-    brokers: ['kafka1:19092']
+    brokers: ['localhost:9092']
 }
