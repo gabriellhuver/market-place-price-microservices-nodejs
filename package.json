@@ -2,7 +2,7 @@
   "dependencies": {
     "dotenv": "^8.2.0",
     "kafkajs": "^1.12.0",
-    "nodemailer": "^6.4.3",
+    "nodemailer": "^6.4.16",
     "nodemon": "^2.0.2"
   },
   "name": "market-place-price-microservices-nodejs",
